@@ -1,0 +1,94 @@
+body {
+    background-color:  rgb(255, 234, 172);
+}
+
+*{
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
+}
+
+
+h1 {
+    text-align: center;
+    color: rgb(149, 72, 0);
+}
+
+form {
+    background-color: rgba(255, 223, 172, 0.626);
+    padding: 20px;
+}
+
+label {
+    display: block;
+    color: rgb(149, 72, 0);
+    text-align: center;
+}
+
+input {
+    padding: 20px 0px;
+}
+
+input, textarea {
+    width: 100%;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+button {
+    padding: 15px 30px;
+    background-color: rgb(149, 72, 0);
+    border: none;
+    color:rgb(255, 234, 172);
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+
+.task {
+    background-color: rgb(255, 234, 172);
+    color: rgb(149, 72, 0);
+    box-shadow: 10px 5px 5px rgba(138, 120, 68, 0.584);
+    border-radius: 30px;
+    text-align: center;
+    margin: 10px;
+}
+
+
+.task h2 {
+   line-break: anywhere;
+}
+
+.task p {
+    line-break: anywhere;
+}
+
+.action {
+    padding: 15px 30px;
+    display: flex;
+    justify-content: end;
+    gap: 20px;
+}
+
+.done {
+    background-color: rgba(0, 255, 17, 0.227);
+}
+
+.checkbox {
+    width: initial;
+    transform: scale(2);
+}
+
+.action a {
+    border: 1px solid;
+    padding: 10px 15px;
+    border-radius: 5px;
+    background: rgb(149, 72, 0);
+    color: rgb(255, 234, 172);
+    text-decoration: none;
+    border-radius: 5px;
+    font-size: 13.5px;
+    display: flex ;
+    align-items: center;
+    justify-content: center;
+    
+
+}
