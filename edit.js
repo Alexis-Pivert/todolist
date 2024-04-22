@@ -1,40 +1,38 @@
 // *** Extraire l'id depuis l'url
-const url = new URLSearchParams(location.search)
-const taskId = +url.get("id")
+const urlParams = new URLSearchParams(window.location.search);
+const taskId = +urlParams.get('id');
 
+// *** Récupérer les tâches depuis le localStorage
+let tasks = JSON.parse(localStorage.getItem('tasks')) || [];
 
+// *** Trouver la tâche à modifier
+const taskIndex = tasks.findIndex(task => task.id === taskId);
+const task = tasks[taskIndex];
 
-// *** trouver la tache a modifier 
-const tasks = JSON.parse(localStorage.getItem("tasks"))
+// *** Vérifier si la tâche existe
+if (task) {
+    // *** Pré-remplir le formulaire de modification avec les données de la tâche
+    const input = document.querySelector('input');
+    const textarea = document.querySelector('textarea');
+    input.value = task.title;
+    textarea.value = task.content;
 
-// *** trouver la tache a modifier
-const task = tasks.find(t => t.id === taskId)
+    // *** Récupérer le formulaire et écouter la soumission
+    const form = document.querySelector('form');
 
+    form.addEventListener('submit', (event) => {
+        event.preventDefault();
+       
+        // *** Modifier la tâche
+        tasks[taskIndex].title = input.value;
+        tasks[taskIndex].content = textarea.value;
 
-// *** pré remplire le formulaire de modification avec les données de la tache
-const input = document.querySelector("input")
-const textarea = document.querySelector("textarea")
-input.value = task.title
-textarea.innerText = task.content
+        // *** Mettre à jour le localStorage
+        localStorage.setItem('tasks', JSON.stringify(tasks));
 
-
-// *** recuperer le form et ecouter la soumission
-const form = document.querySelector("form")
-
-form.addEventListener('submit', (event) => {
-    event.preventDefault()
-   
-    // *** modifier la tache
-    task.title = input.value
-    task.content = textarea.value
-
-
-    // *** mettre a jour le localstorage
-    localStorage.setItem("tasks", JSON.stringify(tasks))
-
-    localStorage.setItem('success',"la tache à été mise a jour")
-
-    // *** redirection vers la page d'accueil
-    location.href = "/"
-})
-
+        // *** Redirection vers la page d'accueil après la modification
+        window.location.href = '/';
+    });
+} else {
+    console.error('La tâche spécifiée n\'existe pas.');
+}
