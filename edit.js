@@ -31,7 +31,7 @@ if (task) {
         localStorage.setItem('tasks', JSON.stringify(tasks));
 
         // *** Redirection vers la page d'accueil après la modification
-        window.location.href = '/';
+        window.location.href = '/todolist/';
     });
 } else {
     console.error('La tâche spécifiée n\'existe pas.');
