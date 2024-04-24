@@ -42,7 +42,7 @@ function displayTask(tasks) {
                 <p>${task.content}</p>
                 <div class="action">
                     <input type="checkbox" class="checkbox" ${task.done ? "checked" : ""} data-id=${task.id} />
-                    <a href="/edit.html?id=${task.id}">Editer la tache</a>
+                    <a href="https://alexis-pivert.github.io/todolist/edit.html?id=${task.id}">Editer la tache</a>
                     <button data-id=${task.id}>supprimer</button>
                 </div>
             </div>`;
